@@ -1,0 +1,31 @@
+﻿<Window x:Class="Practice14._12_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practice14._12_2"
+        mc:Ignorable="d"
+        Title="WPF Info" Height="450" Width="800">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="399" Margin="5,10,0,0" VerticalAlignment="Top" Width="772" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Button x:Name="NextButton" Content="&gt;_Next" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="20" FontSize="18" VerticalAlignment="Top" MinWidth="54" />
+            <Button x:Name="PrevButton" Content="&lt;_Prev" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="20,70,0,0" FontSize="18" VerticalAlignment="Top" MinWidth="54"  />
+            <Button Content="_Cancel" Grid.Column="0" HorizontalAlignment="Left" Margin="20,358,0,0" FontSize="18" VerticalAlignment="Top" Width="75" Height="32"/>
+            <CheckBox Content="Stretch" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="20,144" FontSize="18" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+            <TextBlock Grid.Row="0" HorizontalAlignment="Left" Margin="140,20,0,0" FontSize="18" TextWrapping="Wrap"  VerticalAlignment="Top" Height="278" Width="620"
+                       Text="Windows Presentation Foundation (WPF) - это набор инструментов для  построения ..........."/>
+
+        </Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+    </Grid>
+</Window>
