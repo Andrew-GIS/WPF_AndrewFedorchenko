@@ -9,7 +9,7 @@
         Title="MainWindow" Height="200" Width="800">
     <Grid>
         <StackPanel Margin="10">
-        <Button Margin="10" Command="ApplicationCommands.Help" Content="Помогите" />
+            <Button Margin="10" Command="ApplicationCommands.Help" Content="Помогите" />
             <CheckBox x:Name="StatusChackBox" Margin="10" Content="true on to enable button" Command="local:MyCommands.ChangeButtonStatus"/>
         </StackPanel>
     </Grid>
