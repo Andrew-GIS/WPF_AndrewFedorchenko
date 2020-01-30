@@ -47,4 +47,5 @@
         <Button x:Name="OK" Content="OK" Grid.Column="0" Grid.Row="4" Margin="30,10" Command="local:MyCustomCommand.OkBook"></Button>
         <Button x:Name="Cancel" Content="Cancel" Grid.Column="1" Grid.Row="4" Margin="30,10" Command="ApplicationCommands.Close" ></Button>
     </Grid>
+    
 </Window>
