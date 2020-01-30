@@ -49,6 +49,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task1 - Ellipse", "Task1 - 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task2_Employee_Info", "Task2_Employee_Info", "{6B791394-5119-4AA8-8E1E-C2C4ED869453}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Training_Fromashlep", "Training_Fromashlep", "{AE0D2CFE-53AF-4F89-B822-AAE1B548E9AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormaShep", "FormaShep\FormaShep.csproj", "{A7403B38-280B-42ED-AA21-2E74830FFB0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +127,10 @@ Global
 		{501D78A9-0F2C-4957-8039-FD3FCE3D4001}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{501D78A9-0F2C-4957-8039-FD3FCE3D4001}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{501D78A9-0F2C-4957-8039-FD3FCE3D4001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7403B38-280B-42ED-AA21-2E74830FFB0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7403B38-280B-42ED-AA21-2E74830FFB0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7403B38-280B-42ED-AA21-2E74830FFB0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7403B38-280B-42ED-AA21-2E74830FFB0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,6 +155,7 @@ Global
 		{501D78A9-0F2C-4957-8039-FD3FCE3D4001} = {58AF39D8-5A13-475A-988C-ED0BCFF62DF6}
 		{3356EC8C-3CFD-421F-BA13-D65AA9D2DBB0} = {E1049E26-2610-4F3D-AFF6-14744E4008DE}
 		{6B791394-5119-4AA8-8E1E-C2C4ED869453} = {E1049E26-2610-4F3D-AFF6-14744E4008DE}
+		{A7403B38-280B-42ED-AA21-2E74830FFB0B} = {AE0D2CFE-53AF-4F89-B822-AAE1B548E9AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DB37D896-E760-49FD-B9DE-FFDB6DEEA421}
