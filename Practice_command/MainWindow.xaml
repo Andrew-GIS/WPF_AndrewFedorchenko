@@ -1,0 +1,16 @@
+﻿<Window x:Class="Practice_command.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practice_command"
+        
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="800">
+    <Grid>
+        <StackPanel Margin="10">
+        <Button Margin="10" Command="ApplicationCommands.Help" Content="Помогите" />
+            <CheckBox x:Name="StatusChackBox" Margin="10" Content="true on to enable button" Command="local:MyCommands.ChangeButtonStatus"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,50 @@
+﻿<Window x:Class="Author_Book_Info.Views.NewBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Author_Book_Info.Views"
+        xmlns:tools="clr-namespace:Author_Book_Info.Tools"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="NewBook" Height="300" Width="300">
+    <Window.Resources>
+        <tools:IsNewToBoolConverter x:Key="isNewToBoolConverter"></tools:IsNewToBoolConverter>
+    </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="local:MyCustomCommand.OkBook" Executed="OkBookCommandExecuted" CanExecute="Command_CanExecute"/>
+        <CommandBinding Command="ApplicationCommands.Close" Executed="CancelCommandExecuted" CanExecute="Command_CanExecute"/>
+    </Window.CommandBindings>
+    
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.ColumnSpan ="2" Content="{Binding Path=IsNew, Converter={StaticResource isNewToBoolConverter}}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"></Label>
+        
+        <Label Grid.Row="1" Grid.Column ="0" Content="Title" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+        <Label Grid.Row="2" Grid.Column ="0" Content="Cost" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+        <Label Grid.Row="3" Grid.Column ="0" Content="Date" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+
+        <TextBox x:Name="BookTitle" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Text="{Binding Title}"></TextBox>
+        <TextBox x:Name="BookCost" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Text="{Binding Cost}"></TextBox>
+        <DatePicker x:Name="BookDate" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" 
+                    SelectedDate="{Binding Path = Date, StringFormat=DD/MM/YYYY, Mode=TwoWay, TargetNullValue={x:Static System:DateTime.Now}}" ></DatePicker>
+
+        <Button x:Name="OK" Content="OK" Grid.Column="0" Grid.Row="4" Margin="30,10" Command="local:MyCustomCommand.OkBook"></Button>
+        <Button x:Name="Cancel" Content="Cancel" Grid.Column="1" Grid.Row="4" Margin="30,10" Command="ApplicationCommands.Close" ></Button>
+    </Grid>
+</Window>
