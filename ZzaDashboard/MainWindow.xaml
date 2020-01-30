@@ -16,6 +16,7 @@
             <Customers:CustomerEditView></Customers:CustomerEditView>
         </DataTemplate>
     </Window.Resources>
+    
     <Grid>
         
         <Grid.ColumnDefinitions>
