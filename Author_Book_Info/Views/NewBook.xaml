@@ -16,9 +16,9 @@
         <CommandBinding Command="local:MyCustomCommand.OkBook" Executed="OkBookCommandExecuted" CanExecute="Command_CanExecute"/>
         <CommandBinding Command="ApplicationCommands.Close" Executed="CancelCommandExecuted" CanExecute="Command_CanExecute"/>
     </Window.CommandBindings>
-    
+
     <Grid>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -34,7 +34,7 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.ColumnSpan ="2" Content="{Binding Path=IsNew, Converter={StaticResource isNewToBoolConverter}}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"></Label>
-        
+
         <Label Grid.Row="1" Grid.Column ="0" Content="Title" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
         <Label Grid.Row="2" Grid.Column ="0" Content="Cost" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
         <Label Grid.Row="3" Grid.Column ="0" Content="Date" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
