@@ -32,12 +32,12 @@
         </Grid.RowDefinitions>
         <Menu x:Name="MainManu" Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" Height="20" Margin="5,10">
             <MenuItem Header="_File" Width="100" HorizontalContentAlignment="Center">
-                <MenuItem Width="150" Header="New Autor" Command="views:MyCustomCommand.NewAuthor"></MenuItem>
-                <MenuItem Width="150" Header="New Book" Command="views:MyCustomCommand.NewBook"></MenuItem>
-                <MenuItem Width="150" Header="Remove Autor" Command="views:MyCustomCommand.DelAuthor"></MenuItem>
-                <MenuItem Width="150" Header="Remove Book" Command="views:MyCustomCommand.DelBook"></MenuItem>
+                <MenuItem x:Name="myNewAuthorMenuItem" Width="150" Header="New Autor" Command="views:MyCustomCommand.NewAuthor"></MenuItem>
+                <MenuItem x:Name="myNewBookMenuItem" Width="150" Header="New Book" Command="views:MyCustomCommand.NewBook"></MenuItem>
+                <MenuItem Name="myDeleteAuhtorMenuItem" Width="150" Header="Remove Autor" Command="views:MyCustomCommand.DelAuthor"></MenuItem>
+                <MenuItem Name="myDeleteBookMenuItem" Width="150" Header="Remove Book" Command="views:MyCustomCommand.DelBook"></MenuItem>
             </MenuItem>
-            <MenuItem Header="_Edit" Width="100">
+            <MenuItem x:Name="myEditMenuItem" Header="_Edit" Width="100">
                 <MenuItem Width="150" Header="Edit Autor" Command="views:MyCustomCommand.ChangeAuthor"></MenuItem>
                 <MenuItem Width="150" Header="Edit Book" Command="views:MyCustomCommand.ChangeBook"></MenuItem>
             </MenuItem>
@@ -72,17 +72,17 @@
         </GroupBox>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
-            <Button Content="New" Margin="5" Command="views:MyCustomCommand.NewBook"></Button>
-            <Button Content="Change" Margin="5" Command="views:MyCustomCommand.ChangeBook"></Button>
-            <Button Content="Delete" Margin="5" Command="views:MyCustomCommand.DelBook"></Button>
+            <Button x:Name="newBookButton" Content="New" Margin="5" Command="views:MyCustomCommand.NewBook"></Button>
+            <Button x:Name="changeBookButton" Content="Change" Margin="5" Command="views:MyCustomCommand.ChangeBook"></Button>
+            <Button x:Name="deleteBookButton" Content="Delete" Margin="5" Command="views:MyCustomCommand.DelBook"></Button>
         </StackPanel>
 
         <Separator Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" VerticalAlignment="Top" ></Separator>
 
         <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="62,0" Height="30"  >
-            <Button Content="New" Margin="5"  Command="views:MyCustomCommand.NewAuthor" ></Button>
-            <Button Content="Change" Margin="5" Command="views:MyCustomCommand.ChangeAuthor"></Button>
-            <Button Content="Delete" Margin="5" Command="views:MyCustomCommand.DelAuthor"></Button>
+            <Button x:Name="newAuthorButton" Content="New" Margin="5"  Command="views:MyCustomCommand.NewAuthor" ></Button>
+            <Button x:Name="changeAuthorButton" Content="Change" Margin="5" Command="views:MyCustomCommand.ChangeAuthor"></Button>
+            <Button x:Name="deleteAuthorButton" Content="Delete" Margin="5" Command="views:MyCustomCommand.DelAuthor"></Button>
         </StackPanel>
     </Grid>
 </Window>

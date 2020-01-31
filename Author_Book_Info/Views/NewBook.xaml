@@ -33,7 +33,7 @@
 
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.ColumnSpan ="2" Content="{Binding Path=IsNew, Converter={StaticResource isNewToBoolConverter}}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"></Label>
+        <Label Grid.Row="0" Grid.ColumnSpan ="2" Width="Auto" Content="{Binding Path=IsNew, Converter={StaticResource isNewToBoolConverter}}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"></Label>
 
         <Label Grid.Row="1" Grid.Column ="0" Content="Title" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
         <Label Grid.Row="2" Grid.Column ="0" Content="Cost" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>

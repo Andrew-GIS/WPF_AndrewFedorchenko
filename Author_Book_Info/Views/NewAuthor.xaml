@@ -35,9 +35,9 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        
 
-        <Label Grid.Row="0" Grid.ColumnSpan ="2" Content= "{Binding Path=IsNew, Converter={StaticResource isNewToBoolConverter}}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+
+        <Label Grid.Row="0" Grid.ColumnSpan ="2" Width="Auto" Content= "{Binding Path=IsNew, Converter={StaticResource isNewToBoolConverter}}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"></Label>
 
         <Label Grid.Row="1" Grid.Column ="0" Content="First Name" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  ></Label>
 

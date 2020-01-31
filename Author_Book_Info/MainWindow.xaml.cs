@@ -29,26 +29,26 @@ namespace Author_Book_Info
         public MainWindow()
         {
             CommandBinding newBookBind = new CommandBinding(MyCustomCommand.NewBook);
-            newBookBind.Executed += NewBook_Executed;
+            newBookBind.Executed += NewCommand_Executed;
 
             CommandBinding changeBook_bind = new CommandBinding(MyCustomCommand.ChangeBook);
             changeBook_bind.CanExecute += GeneralCommand_CanExecute;
-            changeBook_bind.Executed += ChangeBookCommand_Executed;
+            changeBook_bind.Executed += ChangeCommand_Executed;
 
             CommandBinding delBookBind = new CommandBinding(MyCustomCommand.DelBook);
             delBookBind.CanExecute += GeneralCommand_CanExecute;
-            delBookBind.Executed += DeleteBookCommand_Executed;
+            delBookBind.Executed += DeleteCommand_Executed;
 
             CommandBinding newAuthorBind = new CommandBinding(MyCustomCommand.NewAuthor);
-            newAuthorBind.Executed += NewAuthor_Executed;
+            newAuthorBind.Executed += NewCommand_Executed;
 
             CommandBinding changeAuthorBind = new CommandBinding(MyCustomCommand.ChangeAuthor);
             changeAuthorBind.CanExecute += GeneralCommand_CanExecute;
-            changeAuthorBind.Executed += ChangeAuthorCommand_Executed;
+            changeAuthorBind.Executed += ChangeCommand_Executed;
 
             CommandBinding delAuthorBind = new CommandBinding(MyCustomCommand.DelAuthor);
             delAuthorBind.CanExecute += GeneralCommand_CanExecute;
-            delAuthorBind.Executed += DeleteAuthorCommand_Executed;
+            delAuthorBind.Executed += DeleteCommand_Executed;
 
             this.CommandBindings.Add(newBookBind);
             this.CommandBindings.Add(changeBook_bind);
@@ -63,71 +63,68 @@ namespace Author_Book_Info
             this.AuthorList.ItemsSource = authorCollection;
         }
 
-        private void NewBook_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            //new NewBook { DataContext = this.BookGrid.SelectedItem as Book }.Show();
-            //new NewBook { DataContext = new Book() }.Show();
-            var newBook = new Book();
-            var window = new NewBook(newBook);
+            string source = string.Empty;
 
-            var result = window.ShowDialog();
-
-            if (!result.Value)
-            {
-                return;
-            }
-            else
-            {
-                newBook.Save();
-                this.authorCollection[this.AuthorList.SelectedIndex].Books.Add(newBook);
-            }
-        }
-
-        private void NewAuthor_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
             var newAuthor = new Author();
-            var window = new NewAuthor(newAuthor);
+            var Authorwindow = new NewAuthor(newAuthor);
 
-            var result = window.ShowDialog();
+            var newBook = new Book();
+            var Bookwindow = new NewBook(newBook);
 
-            if (!result.Value)
+            if (e.Source is Button)
+                source = (e.Source as Button).Name;
+            else if (e.Source is MenuItem)
+                source = (e.Source as MenuItem).Name;
+            else if (e.OriginalSource is ListBoxItem)
+                source = "listBoxItem";
+            else if (e.OriginalSource is DataGridCell)
+                source = "dataGridItem";
+
+            if (source == "newAuthorButton" || source == "listBoxItem" || source == "myNewAuthorMenuItem")
             {
-                return;
+                var Authorresult = Authorwindow.ShowDialog();
+                if (!Authorresult.Value)
+                {
+                    return;
+                }
+                else
+                {
+                    newAuthor.Save();
+                    this.authorCollection.Add(newAuthor);
+                }
             }
-            else
+
+            else if (source == "newBookButton" || source == "dataGridItem" || source == "myNewBookMenuItem")
             {
-                newAuthor.Save();
-                this.authorCollection.Add(newAuthor);
+                var Bookresult = Bookwindow.ShowDialog();
+                if (!Bookresult.Value)
+                {
+                    return;
+                }
+                else
+                {
+                    newBook.Save();
+                    this.authorCollection[this.AuthorList.SelectedIndex].Books.Add(newBook);
+                }
             }
         }
 
-        private void ChangeBookCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void ChangeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            //new NewBook { DataContext = this.BookGrid.SelectedItem as Book }.Show();
-            //new NewBook(this.BookGrid.SelectedItem as Book).Show();
-            var selecBook = BookGrid.SelectedItem as Book;
-            
-            var window = new NewBook(selecBook);
+            string source = string.Empty;
 
-            var result = window.ShowDialog();
+            if (e.Source is Button)
+                source = (e.Source as Button).Name.ToString();
+            else if (e.Source is MenuItem)
+                source = (e.Source as MenuItem).Name;
+            else if (e.OriginalSource is ListBoxItem)
+                source = "listBoxItem";
+            else if (e.OriginalSource is DataGridCell)
+                source = "dataGridItem";
 
-            if (!result.Value)
-            {
-                return;
-            }
-            else
-            {
-                this.BookGrid.Items.Refresh();
-            }
-        }
-
-        private void ChangeAuthorCommand_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            //var  a = this.AuthorList.SelectedItem as Author;
-            //a.Save();
-            //new NewAuthor(new Author()) { DataContext = this.AuthorList.SelectedItem as Author }.Show();
-
-            if (e.Source is Author)
+            if (source == "changeAuthorButton" || source == "listBoxItem" || source == "myEditMenuItem")
             {
                 var selecAuthor = AuthorList.SelectedItem as Author;
 
@@ -145,7 +142,7 @@ namespace Author_Book_Info
                 }
             }
 
-            else if (e.Source is Book)
+            else if (source == "changeBookButton" || source == "dataGridItem" || source == "myEditMenuItem")
             {
                 var selecBook = BookGrid.SelectedItem as Book;
 
@@ -164,15 +161,28 @@ namespace Author_Book_Info
             }
         }
 
-        private void DeleteBookCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        public void DeleteCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            var selectBook = BookGrid.SelectedItem;
-            authorCollection[AuthorList.SelectedIndex].Books.Remove(selectBook as Book);
-        }
+            string source = string.Empty;
 
-        private void DeleteAuthorCommand_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            authorCollection.Remove(AuthorList.SelectedItem as Author);
+            if (e.Source is Button)
+                source = (e.Source as Button).Name;
+            else if (e.Source is MenuItem)
+                source = (e.Source as MenuItem).Name;
+            else if (e.OriginalSource is ListBoxItem)
+                source = "listBoxItem";
+            else if (e.OriginalSource is DataGridCell)
+                source = "dataGridItem";
+
+            if (source == "deleteAuthorButton" || source == "listBoxItem" || source == "myDeleteAuhtorMenuItem")
+            {
+                authorCollection.Remove(AuthorList.SelectedItem as Author);
+            }
+            else if (source == "deleteBookButton" || source == "dataGridItem" || source == "myDeleteBookMenuItem")
+            {
+                var selectBook = BookGrid.SelectedItem;
+                authorCollection[AuthorList.SelectedIndex].Books.Remove(selectBook as Book);
+            }
         }
 
         private void GeneralCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)

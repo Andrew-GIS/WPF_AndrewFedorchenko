@@ -57,7 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Tools\IsNewToBoolConverter.cs" />
     <Compile Include="Tools\IsStringToColorConverter.cs" />
-    <Compile Include="Views\MyCustomCommand.cs" />
+    <Compile Include="Model\MyCustomCommand.cs" />
     <Compile Include="Views\NewAuthor.xaml.cs">
       <DependentUpon>NewAuthor.xaml</DependentUpon>
     </Compile>

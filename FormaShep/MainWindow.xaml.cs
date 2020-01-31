@@ -28,12 +28,10 @@ namespace FormaShep
         {
             this.ProductGrid.Items.Remove(this.ProductGrid.SelectedItem);
         }
-
         private void OnClearAll_Click(object sender, RoutedEventArgs e)
         {
             this.ProductGrid.Items.Clear();
         }
-
         private void OnAddButton_Click(object sender, RoutedEventArgs e)
         {
             if (EnteredText.Text == string.Empty)
